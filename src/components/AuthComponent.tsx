@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { authService } from '@/services/auth';
+import { LockKeyhole, User, Mail } from 'lucide-react';
 
 interface AuthProps {
   onComplete?: () => void;
@@ -72,49 +73,57 @@ const AuthComponent: React.FC<AuthProps> = ({ onComplete }) => {
   };
   
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="w-full max-w-md mx-auto bg-black/80 border-white/10 text-white">
       <CardHeader>
-        <CardTitle className="text-center text-2xl text-clover-primary">Welcome to Clover Sports</CardTitle>
-        <CardDescription className="text-center">Join the community to participate in sports activities</CardDescription>
+        <CardTitle className="text-center text-2xl text-clover-primary">Access Your Account</CardTitle>
+        <CardDescription className="text-center text-white/70">Join the Clover Sports community</CardDescription>
       </CardHeader>
       
       <CardContent>
         <Tabs defaultValue={activeTab} onValueChange={(value) => setActiveTab(value as "login" | "register")}>
-          <TabsList className="grid w-full grid-cols-2 mb-6">
-            <TabsTrigger value="login">Login</TabsTrigger>
-            <TabsTrigger value="register">Register</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 mb-6 bg-white/10">
+            <TabsTrigger value="login" className="data-[state=active]:bg-clover-primary data-[state=active]:text-white">Login</TabsTrigger>
+            <TabsTrigger value="register" className="data-[state=active]:bg-clover-primary data-[state=active]:text-white">Register</TabsTrigger>
           </TabsList>
           
           {/* Login Form */}
           <TabsContent value="login">
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="login-email">Email</Label>
-                <Input 
-                  id="login-email" 
-                  type="email" 
-                  required
-                  value={loginEmail}
-                  onChange={(e) => setLoginEmail(e.target.value)}
-                  placeholder="your@email.com"
-                />
+                <Label htmlFor="login-email" className="text-white/90">Email</Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                  <Input 
+                    id="login-email" 
+                    type="email" 
+                    required
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  />
+                </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="login-password">Password</Label>
-                <Input 
-                  id="login-password" 
-                  type="password" 
-                  required
-                  value={loginPassword}
-                  onChange={(e) => setLoginPassword(e.target.value)}
-                  placeholder="••••••••"
-                />
+                <Label htmlFor="login-password" className="text-white/90">Password</Label>
+                <div className="relative">
+                  <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                  <Input 
+                    id="login-password" 
+                    type="password" 
+                    required
+                    value={loginPassword}
+                    onChange={(e) => setLoginPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  />
+                </div>
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-clover-primary hover:bg-clover-dark"
+                className="w-full bg-clover-primary hover:bg-clover-dark text-white"
                 disabled={isLoggingIn}
               >
                 {isLoggingIn ? "Logging in..." : "Login"}
@@ -126,56 +135,72 @@ const AuthComponent: React.FC<AuthProps> = ({ onComplete }) => {
           <TabsContent value="register">
             <form onSubmit={handleRegister} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="register-name">Name</Label>
-                <Input 
-                  id="register-name" 
-                  type="text" 
-                  required
-                  value={registerName}
-                  onChange={(e) => setRegisterName(e.target.value)}
-                  placeholder="Your Name"
-                />
+                <Label htmlFor="register-name" className="text-white/90">Name</Label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                  <Input 
+                    id="register-name" 
+                    type="text" 
+                    required
+                    value={registerName}
+                    onChange={(e) => setRegisterName(e.target.value)}
+                    placeholder="Your Name"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  />
+                </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="register-email">Email</Label>
-                <Input 
-                  id="register-email" 
-                  type="email" 
-                  required
-                  value={registerEmail}
-                  onChange={(e) => setRegisterEmail(e.target.value)}
-                  placeholder="your@email.com"
-                />
+                <Label htmlFor="register-email" className="text-white/90">Email</Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                  <Input 
+                    id="register-email" 
+                    type="email" 
+                    required
+                    value={registerEmail}
+                    onChange={(e) => setRegisterEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  />
+                </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="register-password">Password</Label>
-                <Input 
-                  id="register-password" 
-                  type="password" 
-                  required
-                  value={registerPassword}
-                  onChange={(e) => setRegisterPassword(e.target.value)}
-                  placeholder="••••••••"
-                />
+                <Label htmlFor="register-password" className="text-white/90">Password</Label>
+                <div className="relative">
+                  <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                  <Input 
+                    id="register-password" 
+                    type="password" 
+                    required
+                    value={registerPassword}
+                    onChange={(e) => setRegisterPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  />
+                </div>
               </div>
               
               <div className="space-y-2">
-                <Label htmlFor="register-confirm-password">Confirm Password</Label>
-                <Input 
-                  id="register-confirm-password" 
-                  type="password" 
-                  required
-                  value={registerConfirmPassword}
-                  onChange={(e) => setRegisterConfirmPassword(e.target.value)}
-                  placeholder="••••••••"
-                />
+                <Label htmlFor="register-confirm-password" className="text-white/90">Confirm Password</Label>
+                <div className="relative">
+                  <LockKeyhole className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50 h-4 w-4" />
+                  <Input 
+                    id="register-confirm-password" 
+                    type="password" 
+                    required
+                    value={registerConfirmPassword}
+                    onChange={(e) => setRegisterConfirmPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                  />
+                </div>
               </div>
               
               <Button 
                 type="submit" 
-                className="w-full bg-clover-primary hover:bg-clover-dark"
+                className="w-full bg-clover-primary hover:bg-clover-dark text-white"
                 disabled={isRegistering}
               >
                 {isRegistering ? "Registering..." : "Register"}
@@ -186,7 +211,7 @@ const AuthComponent: React.FC<AuthProps> = ({ onComplete }) => {
       </CardContent>
       
       <CardFooter className="justify-center">
-        <p className="text-xs text-gray-500 text-center">
+        <p className="text-xs text-white/50 text-center">
           By continuing, you agree to our Terms of Service and Privacy Policy
         </p>
       </CardFooter>

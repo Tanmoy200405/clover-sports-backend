@@ -20,8 +20,12 @@ const Auth = () => {
     <div className="container mx-auto px-4 py-16 bg-black">
       <div className="max-w-md mx-auto bg-black/60 backdrop-blur-md rounded-lg shadow-lg border border-white/10 overflow-hidden">
         <div className="bg-clover-primary p-6 text-white text-center">
-          <div className="mx-auto bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
-            <div className="bg-clover-primary w-12 h-12 rounded-full flex items-center justify-center text-white text-xl font-bold">C</div>
+          <div className="mx-auto w-24 h-24 mb-4">
+            <img 
+              src="/lovable-uploads/27e90892-d6f9-4edc-8bf8-d4cdad6bb09c.png" 
+              alt="Clover Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <h2 className="text-2xl font-bold">Welcome to Clover Sports</h2>
           <p className="text-white/80 mt-2">Sign in to access your account</p>
