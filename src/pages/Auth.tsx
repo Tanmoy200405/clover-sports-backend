@@ -17,8 +17,8 @@ const Auth = () => {
   };
   
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="container mx-auto px-4 py-16 bg-black">
+      <div className="max-w-md mx-auto bg-black/60 backdrop-blur-md rounded-lg shadow-lg border border-white/10 overflow-hidden">
         <div className="bg-clover-primary p-6 text-white text-center">
           <div className="mx-auto bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-4">
             <div className="bg-clover-primary w-12 h-12 rounded-full flex items-center justify-center text-white text-xl font-bold">C</div>

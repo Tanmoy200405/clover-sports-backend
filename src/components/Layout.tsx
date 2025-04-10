@@ -67,9 +67,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
   
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
       {/* Desktop Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+      <header className="bg-black border-b border-white/10 sticky top-0 z-10">
         <div className="container mx-auto flex justify-between items-center px-4 py-3">
           <Link to="/" className="flex items-center gap-2">
             <div className="bg-clover-primary w-8 h-8 rounded-full flex items-center justify-center text-white font-bold">C</div>
@@ -84,7 +84,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${
                   isActive(item.path) 
                     ? 'text-clover-primary font-medium' 
-                    : 'text-gray-600 hover:text-clover-primary hover:bg-gray-50'
+                    : 'text-gray-300 hover:text-clover-primary hover:bg-white/5'
                 }`}
               >
                 {item.icon}
@@ -106,7 +106,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   variant="ghost" 
                   size="sm"
                   onClick={handleLogout}
-                  className="hidden md:flex"
+                  className="hidden md:flex text-white hover:bg-white/5"
                 >
                   <LogOut size={18} className="mr-2" />
                   Logout
@@ -123,11 +123,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             {/* Mobile menu button */}
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="md:hidden">
+                <Button variant="outline" size="icon" className="md:hidden border-white/20 text-white">
                   <Menu size={20} />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
+              <SheetContent side="right" className="bg-black text-white border-white/10">
                 <div className="py-4">
                   <h2 className="text-xl font-bold text-clover-primary mb-6 flex items-center gap-2">
                     <div className="bg-clover-primary w-8 h-8 rounded-full flex items-center justify-center text-white font-bold">C</div>
@@ -141,8 +141,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         to={item.path}
                         className={`flex items-center gap-3 px-3 py-3 rounded-md transition-colors ${
                           isActive(item.path) 
-                            ? 'bg-clover-light text-clover-dark font-medium' 
-                            : 'text-gray-600 hover:bg-gray-100'
+                            ? 'bg-clover-dark/30 text-clover-light font-medium' 
+                            : 'text-gray-300 hover:bg-white/5'
                         }`}
                       >
                         {item.icon}
@@ -197,7 +197,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       </main>
       
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-6">
+      <footer className="bg-black border-t border-white/10 py-6">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-4 md:mb-0">
@@ -205,7 +205,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <span className="text-lg font-bold text-clover-primary">Clover Sports</span>
             </div>
             
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-400">
               &copy; {new Date().getFullYear()} Clover Sports Community. All rights reserved.
             </div>
           </div>
