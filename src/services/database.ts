@@ -273,7 +273,7 @@ class Database {
       avatar: "https://i.pravatar.cc/150?u=tanmoy",
       location: "Kolkata",
       bio: "Sports enthusiast and community organizer",
-      favoriteActivities: ["Cricket", "Football", "Running"]
+      favoriteActivities: ["Cricket", "Football", "Chess", "Running"]
     });
     
     const user2 = await this.createUser({
@@ -282,7 +282,7 @@ class Database {
       avatar: "https://i.pravatar.cc/150?u=rahul",
       location: "Mumbai",
       bio: "Professional cricket player and coach",
-      favoriteActivities: ["Cricket", "Swimming"]
+      favoriteActivities: ["Cricket", "Swimming", "Badminton"]
     });
     
     const user3 = await this.createUser({
@@ -291,7 +291,16 @@ class Database {
       avatar: "https://i.pravatar.cc/150?u=priya",
       location: "Delhi",
       bio: "Yoga instructor and amateur footballer",
-      favoriteActivities: ["Yoga", "Football", "Hiking"]
+      favoriteActivities: ["Yoga", "Football", "Chess", "Hiking"]
+    });
+    
+    const user4 = await this.createUser({
+      name: "Amit Kumar",
+      email: "amit@clover.com",
+      avatar: "https://i.pravatar.cc/150?u=amit",
+      location: "Bangalore",
+      bio: "Chess champion and badminton enthusiast",
+      favoriteActivities: ["Chess", "Badminton"]
     });
     
     // Create activities
@@ -325,6 +334,52 @@ class Database {
       status: "upcoming"
     });
     
+    // Add new sports activities
+    await this.createActivity({
+      title: "Football Tournament",
+      description: "5-a-side football tournament for all ages. Form a team or join individually.",
+      category: "Football",
+      location: "DLF Sports Complex, Delhi",
+      date: new Date(2025, 4, 20),
+      time: "3:00 PM",
+      duration: 4,
+      hostId: user3.id,
+      participants: [user1.id, user3.id],
+      maxParticipants: 30,
+      image: "https://images.unsplash.com/photo-1600679472829-3044539ce8ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      status: "upcoming"
+    });
+    
+    await this.createActivity({
+      title: "Chess Club Meeting",
+      description: "Weekly chess club meeting. Players of all levels welcome.",
+      category: "Chess",
+      location: "Gariahat Chess Club, Kolkata",
+      date: new Date(2025, 4, 14),
+      time: "6:00 PM",
+      duration: 2,
+      hostId: user4.id,
+      participants: [user1.id, user3.id, user4.id],
+      maxParticipants: 12,
+      image: "https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      status: "upcoming"
+    });
+    
+    await this.createActivity({
+      title: "Badminton Doubles Tournament",
+      description: "Join our monthly badminton doubles tournament with great prizes.",
+      category: "Badminton",
+      location: "Prakash Padukone Badminton Academy, Bangalore",
+      date: new Date(2025, 4, 18),
+      time: "2:00 PM",
+      duration: 5,
+      hostId: user2.id,
+      participants: [user2.id, user4.id],
+      maxParticipants: 16,
+      image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      status: "upcoming"
+    });
+    
     // Create teams
     await this.createTeam({
       name: "Kolkata Tigers",
@@ -335,6 +390,43 @@ class Database {
       location: "Kolkata",
       foundedDate: new Date(2024, 1, 10),
       logo: "https://images.unsplash.com/photo-1546519638-68e109acd618?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      upcomingEvents: []
+    });
+    
+    // Add new sports teams
+    await this.createTeam({
+      name: "Delhi Dragons FC",
+      description: "Community football club focusing on youth development",
+      sport: "Football",
+      captainId: user3.id,
+      members: [user1.id, user3.id],
+      location: "Delhi",
+      foundedDate: new Date(2024, 2, 5),
+      logo: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      upcomingEvents: []
+    });
+    
+    await this.createTeam({
+      name: "Bangalore Knights",
+      description: "Competitive chess team participating in national tournaments",
+      sport: "Chess",
+      captainId: user4.id,
+      members: [user3.id, user4.id],
+      location: "Bangalore",
+      foundedDate: new Date(2024, 1, 20),
+      logo: "https://images.unsplash.com/photo-1529699211952-734e80c4d42b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+      upcomingEvents: []
+    });
+    
+    await this.createTeam({
+      name: "Mumbai Smashers",
+      description: "Badminton team for all ages and skill levels",
+      sport: "Badminton",
+      captainId: user2.id,
+      members: [user2.id, user4.id],
+      location: "Mumbai",
+      foundedDate: new Date(2024, 3, 15),
+      logo: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
       upcomingEvents: []
     });
     
@@ -355,6 +447,23 @@ class Database {
       tags: ["recruitment", "football", "team"]
     });
     
+    // Add new sport posts
+    await this.createPost({
+      title: "Chess Opening Strategies",
+      content: "Master these three chess openings to improve your win rate dramatically...",
+      authorId: user4.id,
+      category: "Chess",
+      tags: ["strategy", "chess", "openings"]
+    });
+    
+    await this.createPost({
+      title: "Badminton Footwork Techniques",
+      content: "Good footwork is the foundation of badminton. Here's how to improve yours...",
+      authorId: user2.id,
+      category: "Badminton",
+      tags: ["technique", "badminton", "footwork"]
+    });
+    
     // Create achievements
     await this.createAchievement({
       title: "Team Creator",
@@ -372,7 +481,7 @@ class Database {
       category: "General"
     });
     
-    // Create leaderboard
+    // Create leaderboards
     await this.createLeaderboard({
       title: "Cricket Runs - Monthly",
       sport: "Cricket",
@@ -380,6 +489,37 @@ class Database {
       entries: [
         { userId: user1.id, score: 120, rank: 2 },
         { userId: user2.id, score: 156, rank: 1 }
+      ]
+    });
+    
+    // Add new sport leaderboards
+    await this.createLeaderboard({
+      title: "Football Goals - Weekly",
+      sport: "Football",
+      period: "weekly",
+      entries: [
+        { userId: user1.id, score: 5, rank: 2 },
+        { userId: user3.id, score: 7, rank: 1 }
+      ]
+    });
+    
+    await this.createLeaderboard({
+      title: "Chess Tournament Rankings",
+      sport: "Chess",
+      period: "monthly",
+      entries: [
+        { userId: user3.id, score: 1800, rank: 2 },
+        { userId: user4.id, score: 2100, rank: 1 }
+      ]
+    });
+    
+    await this.createLeaderboard({
+      title: "Badminton Championships",
+      sport: "Badminton",
+      period: "yearly",
+      entries: [
+        { userId: user2.id, score: 320, rank: 1 },
+        { userId: user4.id, score: 280, rank: 2 }
       ]
     });
   }
