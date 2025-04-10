@@ -64,11 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				clover: {
-					primary: '#4CAF50',
-					dark: '#388E3C',
+					primary: '#2E7D32',
+					dark: '#1B5E20',
 					light: '#A5D6A7',
-					accent: '#2196F3',
-					secondary: '#1976D2'
+					accent: '#43A047',
+					secondary: '#388E3C'
 				}
 			},
 			borderRadius: {

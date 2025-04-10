@@ -158,7 +158,7 @@ const Index = () => {
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="w-16 h-16 rounded-full bg-gray-200 mb-4 overflow-hidden">
                     <img 
-                      src="https://i.pravatar.cc/150?u=testimonial1" 
+                      src="https://raw.githubusercontent.com/Tanmoy200405/CLOVER_CF38/main/images/profile1.jpg" 
                       alt="User" 
                       className="w-full h-full object-cover"
                     />
@@ -177,7 +177,7 @@ const Index = () => {
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="w-16 h-16 rounded-full bg-gray-200 mb-4 overflow-hidden">
                     <img 
-                      src="https://i.pravatar.cc/150?u=testimonial2" 
+                      src="https://raw.githubusercontent.com/Tanmoy200405/CLOVER_CF38/main/images/profile2.jpg" 
                       alt="User" 
                       className="w-full h-full object-cover"
                     />
@@ -196,7 +196,7 @@ const Index = () => {
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="w-16 h-16 rounded-full bg-gray-200 mb-4 overflow-hidden">
                     <img 
-                      src="https://i.pravatar.cc/150?u=testimonial3" 
+                      src="https://raw.githubusercontent.com/Tanmoy200405/CLOVER_CF38/main/images/profile3.jpg" 
                       alt="User" 
                       className="w-full h-full object-cover"
                     />
