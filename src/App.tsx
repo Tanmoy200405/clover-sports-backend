@@ -1,6 +1,5 @@
 
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -14,16 +13,12 @@ import Auth from "./pages/Auth";
 import Profile from "./components/Profile";
 import NotFound from "./pages/NotFound";
 
-// Import uuid dependency
-import { v4 as uuidv4 } from "uuid";
-
+// Create a new query client
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
         <Layout>
           <Routes>
@@ -37,6 +32,7 @@ const App = () => (
           </Routes>
         </Layout>
       </BrowserRouter>
+      <Toaster />
     </TooltipProvider>
   </QueryClientProvider>
 );
